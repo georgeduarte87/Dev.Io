@@ -13,5 +13,6 @@ namespace Dev.IO.App.Data
             : base(options)
         {
         }
+        public DbSet<Dev.IO.App.ViewModels.ProdutoViewModel> ProdutoViewModel { get; set; }
     }
 }

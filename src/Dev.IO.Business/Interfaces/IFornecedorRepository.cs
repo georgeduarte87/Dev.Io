@@ -10,6 +10,6 @@ namespace Dev.IO.Business.Interfaces
     public interface IFornecedorRepository : IRepository<Fornecedor>
     {
         Task<Fornecedor> ObterFornecedoresEndereco(Guid id);
-        Task<Fornecedor> ObterFonecedorProdutosEndereco(Guid id);
+        Task<Fornecedor> ObterFornecedorProdutosEndereco(Guid id);
     }
 }

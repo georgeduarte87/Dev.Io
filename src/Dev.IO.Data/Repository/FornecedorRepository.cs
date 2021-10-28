@@ -14,7 +14,7 @@ namespace Dev.IO.Data.Repository
 
         }
 
-        public async Task<Fornecedor> ObterFonecedorProdutosEndereco(Guid id)
+        public async Task<Fornecedor> ObterFornecedorProdutosEndereco(Guid id)
         {
             return await Db.Fornecedores
                 .AsNoTracking()
