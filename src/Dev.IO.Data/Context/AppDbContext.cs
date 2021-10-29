@@ -8,7 +8,8 @@ namespace Dev.IO.Data.Context
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
-
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
         public DbSet<Produto> Produtos { get; set; }
