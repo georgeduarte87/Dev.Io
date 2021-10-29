@@ -1,25 +1,21 @@
 ﻿@model IEnumerable<Dev.IO.App.ViewModels.ProdutoViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Produtos";
 }
 
-<h1>Index</h1>
+<h1 class="mt-5">@ViewData["Title"] <a class="btn btn-info float-right" asp-action="Create">Novo Produto</a></h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<hr />
 <table class="table">
     <thead>
         <tr>
+            <th>@Html.DisplayNameFor(model => model.Imagem)</th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagem)
+                @Html.DisplayNameFor(model => model.Fornecedor)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Valor)
@@ -34,13 +30,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Imagem)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagem)
+                @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Valor)
@@ -48,10 +44,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Ativo)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FornecedorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FornecedorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
+            <td class="text-right">
+                <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
             </td>
         </tr>
 }
