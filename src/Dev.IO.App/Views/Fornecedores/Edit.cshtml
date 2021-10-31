@@ -57,12 +57,11 @@
 
 <hr />
 <h4>Produtos</h4>
-
-<div>hahaha
+<div>
     <partial name="../Produtos/_ListaProdutos" model="@Model.Produtos" />
 </div>
 
-<!--
+
 <div id="myModal" class="modal fade in">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -70,8 +69,6 @@
         </div>
     </div>
 </div>
-
-    -->
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
