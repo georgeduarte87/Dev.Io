@@ -1,3 +1,4 @@
+using Dev.IO.App.Configurations;
 using Dev.IO.App.Data;
 using Dev.IO.App.Extensions;
 using Dev.IO.Business.Interfaces;
@@ -62,11 +63,7 @@ namespace Dev.IO.App
                 o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
 
-            services.AddScoped<AppDbContext>();
-            services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
-            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
-            services.AddSingleton<IValidationAttributeAdapterProvider, MoedaValidationAttributeAdapterProvider>();
+            services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
