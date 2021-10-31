@@ -111,9 +111,10 @@ namespace Dev.IO.App.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
         private async Task<FornecedorViewModel> ObterFornecedorEndereco(Guid id)
         {
-            return _mapper.Map<FornecedorViewModel>(await _fornecedorRepository.ObterFornecedoresEndereco(id));
+            return _mapper.Map<FornecedorViewModel>(await _fornecedorRepository.ObterFornecedorEndereco(id));
         }
 
         private async Task<FornecedorViewModel> ObterFornecedorProdutosEndereco(Guid id)

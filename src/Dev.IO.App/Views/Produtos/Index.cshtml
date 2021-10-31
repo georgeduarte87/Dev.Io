@@ -7,51 +7,5 @@
 <h1 class="mt-5">@ViewData["Title"] <a class="btn btn-info float-right" asp-action="Create">Novo Produto</a></h1>
 
 <hr />
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Imagem)</th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fornecedor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ativo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <div class="text-left">
-                    <img class="img-thumbnail rounded" width="100px" src="~/images/@Html.DisplayFor(modelItem => item.Imagem)" alt="@Html.DisplayFor(modelItem => item.Nome)" />
-                </div>
-             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
-            </td>
-            <td>
-                @item.Valor.ToString("C");
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ativo)
-            </td>
-            <td class="text-right">
-                <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
-                <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
-                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<partial name="_ListaProdutos"/>
