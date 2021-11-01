@@ -25,6 +25,7 @@ namespace Dev.IO.App.Configurations
                 o.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
                 o.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
 
+                //Força AntiforgeryToken
                 o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
 

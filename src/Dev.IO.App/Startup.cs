@@ -21,12 +21,6 @@ namespace Dev.IO.App
 {
     public class Startup
     {
-        /*
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        } */
-
         public IConfiguration Configuration { get; }
 
         public Startup(IHostEnvironment hostEnvironment)
@@ -45,7 +39,6 @@ namespace Dev.IO.App
             Configuration = builder.Build();
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityConfiguration(Configuration);
@@ -61,7 +54,6 @@ namespace Dev.IO.App
             services.ResolveDependencies();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -71,8 +63,9 @@ namespace Dev.IO.App
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                //app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("erro/500");
+                app.UseStatusCodePagesWithRedirects("/erro/{0}");
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
