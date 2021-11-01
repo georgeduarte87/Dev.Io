@@ -8,11 +8,13 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    
+    <form asp-action="Create">
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!--<div asp-validation-summary="ModelOnly" class="text-danger"></div>-->
 
+        <vc:summary></vc:summary>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -36,14 +38,14 @@
 
             <h4>Endereço</h4>
             <hr />
-            <partial name="_Endereco"/>
+            <partial name="_Endereco" />
 
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
                 <a class="btn btn-info" asp-action="Index">Voltar</a>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
